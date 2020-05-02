@@ -1,0 +1,69 @@
+body {
+  padding: 4vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.login-container {
+  padding: 5vh;
+}
+.title {
+  text-align: center;
+}
+.return-form {
+  display: flex;
+  justify-content: center;
+}
+.container {
+  margin-bottom: 5vh;
+  padding: 5vh;
+  max-width: 30vw;
+  min-width: 30vw;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.task-container {
+  display: flex;
+  flex-direction: column;
+}
+.message-container {
+  display: flex;
+  flex-direction: column;
+}
+.login-form-1 h3 {
+  text-align: center;
+  color: #333;
+}
+.center-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.center-self {
+  display: flex;
+  align-self: center;
+}
+.btnSubmit {
+  width: 20vh;
+  border-radius: 1rem;
+  padding: 1vh;
+  border: none;
+  cursor: pointer;
+}
+.btnTask {
+  width: 50vh;
+  border-radius: 1rem;
+  padding: 1vh;
+  border: none;
+  cursor: pointer;
+}
+.btnReveal {
+  width: 100%;
+  border-radius: 1rem;
+  padding: 1vh;
+  border: none;
+  cursor: pointer;
+}
+.login-form-1 .btnSubmit {
+  color: #fff;
+  background-color: #0062cc;
+}

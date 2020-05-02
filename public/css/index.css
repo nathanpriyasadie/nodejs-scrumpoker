@@ -1,0 +1,34 @@
+body {
+  padding: 4vh;
+}
+.login-container {
+  padding: 10vh;
+}
+.login-form-1 {
+  padding: 5vh;
+  min-width: 50vh;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-1 h3 {
+  text-align: center;
+  color: #333;
+}
+.center-content {
+  display: flex;
+  justify-content: center;
+}
+.center-self {
+  display: flex;
+  align-self: center;
+}
+.btnSubmit {
+  width: 20vh;
+  border-radius: 1rem;
+  padding: 1vh;
+  border: none;
+  cursor: pointer;
+}
+.login-form-1 .btnSubmit {
+  color: #fff;
+  background-color: #0062cc;
+}

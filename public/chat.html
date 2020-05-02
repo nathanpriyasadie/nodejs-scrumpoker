@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/chat.css" />
+    <title>Scrum Poker</title>
+  </head>
+  <body>
+    <h3 id="title" class="title">Chat</h3>
+    <div class="login-container">
+      <div class="container">
+        <div class="input-group">
+          <form id="task-form" class="center-content">
+            <input
+              type="text"
+              name="message"
+              placeholder="Input your task"
+              required
+              autocomplete="off"
+              class="form-control"
+            />
+            <button type="submit" class="btnTask btn-primary">
+              Send Task
+            </button>
+          </form>
+        </div>
+        <p>Current Task:</p>
+        <div id="task" class="center-content"></div>
+      </div>
+      <div class="container">
+        <div class="center-content">
+          <form id="message-form" class="center-content">
+            <div class="input-group center-content">
+              <select
+                id="message"
+                name="message"
+                form="message-form"
+                class="custom-select"
+              >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="5">5</option>
+                <option value="8">8</option>
+                <option value="13">13</option>
+              </select>
+              <button type="submit" class="btnSubmit btn-primary">
+                Send Point
+              </button>
+            </div>
+          </form>
+        </div>
+        <button id="reveal-button" class="btn btn-primary">
+          Reveal
+        </button>
+        <div id="user"></div>
+      </div>
+      <form action="/" class="return-form">
+        <input
+          type="submit"
+          value="Return to login"
+          class="btnSubmit btn btn-danger"
+        />
+      </form>
+    </div>
+    <script id="task-template" type="text/html">
+      <h3>{{task}}</h3>
+    </script>
+    <script id="user-template" type="text/html">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Username</th>
+            <th scope="col">Point</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#users}}
+          <tr>
+            <td scope="row">{{username}}</td>
+            <td>{{message}}</td>
+          </tr>
+          {{/users}}
+        </tbody>
+      </table>
+    </script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
+    <script src="./js/chat.js"></script>
+  </body>
+</html>

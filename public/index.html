@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scrum Poker</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <h1 class="center-content font-weight-bold">Scrum Poker</h1>
+    <div class="container login-container">
+      <div class="center-content">
+        <form action="chat.html" id="login-form" class="col-md-6 login-form-1">
+          <div class="form-group">
+            <label>Username</label>
+            <input
+              type="text"
+              name="username"
+              placeholder="Input your username"
+              required
+              autocomplete="off"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label>Role</label>
+            <select
+              id="role"
+              name="role"
+              class="custom-select"
+              form="login-form"
+            >
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Room</label>
+            <input
+              class="form-control"
+              type="text"
+              name="room"
+              placeholder="Input your room"
+              required
+              autocomplete="off"
+            />
+          </div>
+          <div class="form-group center-content">
+            <button type="submit" class="btnSubmit">
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+  <footer>
+    <h4 class="center-content font-weight-light">made by nathan</h4>
+  </footer>
+</html>
