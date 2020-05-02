@@ -35,15 +35,12 @@ const getAdmin = (id) => {
 };
 
 const setMessage = (data) => {
-  console.log("data", data);
   const index = users.findIndex((item) => item.id === data.id);
   if (index === -1 || !users.length) {
     console.log("error", data);
   } else {
     users[index].message = data.message;
-    console.log("replace cur message");
   }
-  console.log("Users List", users);
   return users;
 };
 

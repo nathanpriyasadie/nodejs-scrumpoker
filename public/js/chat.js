@@ -31,7 +31,6 @@ const { username, room, role } = Qs.parse(location.search, {
 });
 
 socket.on("user", (users) => {
-  console.log(users);
   const html = Mustache.render(userTemplate, {
     users,
   });
@@ -39,7 +38,6 @@ socket.on("user", (users) => {
 });
 
 socket.on("task", (data) => {
-  console.log(data);
   const html = Mustache.render(taskTemplate, {
     task: data.task,
   });
@@ -56,14 +54,12 @@ socket.emit("join", { username, room, role }, (error) => {
 $messageForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const message = e.target.elements.message.value;
-  console.log(message);
   socket.emit("message", message);
 });
 
 $taskForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const task = e.target.elements.message.value;
-  console.log(task);
   e.target.elements.message.value = "";
   socket.emit("task", task);
 });

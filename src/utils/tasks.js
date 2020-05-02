@@ -7,7 +7,6 @@ const addTask = (task) => {
   } else {
     tasks[index] = task;
   }
-  console.log("Tasks List", tasks);
   return task;
 };
 
