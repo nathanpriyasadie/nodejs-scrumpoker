@@ -4,6 +4,8 @@ const addUser = ({ id, username, room, role }) => {
   username = username.trim().toLowerCase();
   room = room.trim().toLowerCase();
 
+  console.log("add user");
+
   const existingUser = users.find((user) => {
     return user.room === room && user.username === username;
   });
@@ -65,14 +67,6 @@ const removeUser = (id) => {
 
   users.splice(index, 1);
 };
-
-// addUser({
-//   id: 1,
-//   username: "nathan",
-//   room: "1",
-//   role: "admin",
-// });
-// setMessage({ id: 1, message: "halo" });
 
 module.exports = {
   addUser,

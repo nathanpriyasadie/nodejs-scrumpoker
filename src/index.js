@@ -2,65 +2,27 @@ const express = require("express");
 const socketio = require("socket.io");
 const http = require("http");
 const path = require("path");
-const {
-  addUser,
-  getUser,
-  getAdmin,
-  setMessage,
-  getUsers,
-  getUsersWithoutMessage,
-  removeUser,
-  resetMessage,
-} = require("./utils/users");
-const { addTask } = require("./utils/tasks");
+
+const chatController = require("../controllers/chat");
+
+const router = require("../routes/index");
+const listener = require("../src/util/socketio");
 
 const app = express();
 const server = http.createServer(app);
-const io = socketio(server);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 const publicDirectoryPath = path.join(__dirname, "../public");
 
+app.set("view engine", "ejs");
+app.set("views", "views");
 app.use(express.static(publicDirectoryPath));
+app.use(router);
 
-io.on("connection", (socket) => {
-  console.log("new connection");
-  const id = socket.id;
-  socket.on("join", (options, callback) => {
-    const { error, user } = addUser({ id, ...options });
-    if (error) return callback(error);
-    socket.join(user.room);
-    io.to(user.room).emit("user", getUsersWithoutMessage(user.room));
-  });
+listener.listenToChat(socketio(server));
 
-  socket.on("task", (task, callback) => {
-    const { error, user } = getAdmin(id);
-    if (error) {
-      return callback(error);
-    }
-    resetMessage(user.room);
-    const newTask = addTask({ room: user.room, task });
-    io.to(user.room).emit("task", newTask);
-    io.to(user.room).emit("user", getUsersWithoutMessage(user.room));
-  });
-
-  socket.on("message", (message, callback) => {
-    const { error, user } = getUser(id);
-    if (error) callback(error);
-    const users = setMessage({ id, message });
-    io.to(user.room).emit("message", users);
-  });
-
-  socket.on("reveal", (callback) => {
-    const { error, user } = getAdmin(id);
-    if (error) return callback(error);
-    io.to(user.room).emit("user", getUsers(user.room));
-  });
-
-  socket.on("disconnect", () => {
-    console.log("a user disconnected");
-    removeUser(id);
-  });
+app.use("/", (req, res) => {
+  res.send("404 not found");
 });
 
 server.listen(port, () => {
